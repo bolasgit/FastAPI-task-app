@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 
 # url to create a location of database on the fastapi application
 # database will be inside the directory of the todo application
-SQLALCHEMY_DATABASE_URL = "sqlite:///./todos.db"
+SQLALCHEMY_DATABASE_URL = "sqlite:///./todos_app.db"
 
 # engine is used to open up connection and use database
 # connect args are used to define a connection to database
