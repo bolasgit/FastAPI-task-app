@@ -2,8 +2,11 @@
     "cSpell.words": [
         "autoflush",
         "fastapi",
+        "fastapivenv",
+        "passlib",
         "pydantic",
         "sessionmaker",
+        "starlette",
         "todos",
         "uvicorn"
     ]
