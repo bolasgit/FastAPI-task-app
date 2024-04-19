@@ -6,8 +6,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from datetime import timedelta, datetime
 from pydantic import BaseModel
-from models import Users
-from database import SessionLocal
+from ..models import Users
+from ..database import SessionLocal
 from typing import Annotated
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
@@ -22,7 +22,7 @@ from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 # for generating JWT we used pip install "python-jose[cryptography]"
 
 
-router = APIRouter(prefix="/auth", tags=["auth"])
+router = APIRouter(prefix="/auth", tags=["Auth"])
 
 # to generate secrete key, in terminal we run the following command "openssl rand -hex 32"
 # These work together to add a signature to the JWT to make sure it is secured and authorized
@@ -43,6 +43,7 @@ class CreateUserRequest(BaseModel):
     last_name: str
     password: str
     role: str
+    phone_number: str
 
 
 class Token(BaseModel):
@@ -109,6 +110,7 @@ async def create_user(db: db_dependency, create_user_request: CreateUserRequest)
         last_name=create_user_request.last_name,
         hashed_password=bcrypt_context.hash(create_user_request.password),
         role=create_user_request.role,
+        phone_number=create_user_request.phone_number,
     )
     db.add(create_user_model)
     db.commit()

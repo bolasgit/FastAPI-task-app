@@ -3,11 +3,17 @@
         "autoflush",
         "fastapi",
         "fastapivenv",
+        "Inno",
         "passlib",
+        "psycopg",
         "pydantic",
+        "pymysql",
+        "repr",
         "sessionmaker",
         "starlette",
+        "todoapplicationdatabase",
         "todos",
-        "uvicorn"
+        "uvicorn",
+        "varchar"
     ]
 }

@@ -1,17 +1,18 @@
 # this will be the root file where we create the fastapi application
+
 from fastapi import Depends, HTTPException, Path, status, APIRouter
 from pydantic import BaseModel, Field
-from database import SessionLocal
+from ..database import SessionLocal
 from sqlalchemy.orm import Session
 from typing import Annotated
 from sqlalchemy.orm import Session
-from models import Todos
+from ..models import Todos
 from .auth import get_current_user
 
 # create the app and connect it to the fastapi application
 # Instead of using FASTapi as the app we use APIRouter instead as the app
 # this comes with the FASTAPI module and helps with scalability
-router = APIRouter(prefix="/admin", tags=["admin"])
+router = APIRouter(prefix="/admin", tags=["Admin"])
 
 
 # ----------------------------------------------------------------
